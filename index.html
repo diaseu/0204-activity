@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="./assets/css/fontawesome.css">
+  <link rel="stylesheet" href="./assets/css/brands.css">
+  <link rel="stylesheet" href="./assets/css/regular.css">
+  <link rel="stylesheet" href="./assets/css/input.css">
+  <link rel="stylesheet" href="./assets/css/colors.css">
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/bootstrap-grid.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <style>
+    .addimg {
+      max-width: 600px;
+      max-height:450px;
+    }
+  </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="container">
+      <!-- Navigation -->
+      <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+        <a href="./index.html" class="d-flex align-items-center text-dark">
+          <img src="./assets/img/ds-logo.png" alt="Logo" class="nav-brand" style="width: 30px;" />
+        </a>
+    
+        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+          <a class="caps" href="./about.html">About</a>
+          <a class="caps" href="./portfolio.html">Portfolio</a>
+          <a class="caps" href="./contact.html">contact</a>
+        </nav>
+      </div>
+    
+      <!-- Header -->
+      <div class="p-3 pb-md-4 center">
+        <h1 class="fw-light caps">the chonkers collection</h1>
+    
+      </div>
+    </header>
+
+    <main class="container">
+  
+  <h3>Element Replacement</h3>
+  <p>cat gifs</p>
+  <button class="replace" data-gif="https://media.giphy.com/media/5xaOcLGDO1jxkpDIPYY/giphy.gif">chonker</button>
+  <button class="replace" data-gif="https://media.giphy.com/media/g4OAnFSD83EOCvahc8/giphy.gif">round</button>
+  <button class="replace" data-gif="https://media.giphy.com/media/cOd2FsYUiRzWkaA2DX/giphy.gif">chonky</button>
+  <button class="replace" data-gif="https://media.giphy.com/media/uDZyn9bHWzgOY/giphy.gif">cat</button>
+  <button id="clear">Clear</button>
+  <div id="gifs"></div>
+
+
+  <p></p>
+  <hr />
+  <p></p>
+
+  <h3>Element Append</h3>
+  <p>guild cats</p>
+  
+  <button class="add"
+  data-image="https://cdn.discordapp.com/attachments/231959483390099458/842467032498176050/20210501_203435.png">somi</button>
+  <button class="add"
+  data-image="https://cdn.discordapp.com/attachments/231959483390099458/842458303095242802/image0.jpg">taldekk cat</button>
+  <button class="add"
+  data-image="https://cdn.discordapp.com/attachments/231959483390099458/842465617290330142/image0.jpg">amber cat</button>
+  <button class="add"
+  data-image="https://cdn.discordapp.com/attachments/231959483390099458/842466523825438800/image0.jpg">ivan cat</button>
+  <button class="add" data-image="https://i.imgur.com/HFte3GZ.jpg">cat</button>
+  <button class="add"
+  data-image="https://cdn.discordapp.com/attachments/231959483390099458/842442459328806962/unknown.png">geny cat</button>
+  <button id="bye">goodbye cats</button>
+  <div id="images"></div>
+
+</main>
+  <script>
+
+    document.getElementById('clear').addEventListener('click', () => {
+      document.getElementById('gifs').innerHTML = ''
+    })
+
+    document.addEventListener('click', event => {
+      if (event.target.className === 'replace') {
+        // let gifElem = document.createElement('img')
+        // gifElem.setAttribute("src", event.target.dataset.gif)
+        // gifElem.src = event.target.dataset.gif
+        // gifElem.alt = event.target.textContent
+        // document.getElementById('gifs').append(gifElem)
+        document.getElementById('gifs').innerHTML = `
+          <img src="${event.target.dataset.gif}">
+        `
+      }
+    })
+
+    document.getElementById('bye').addEventListener('click', () => {
+      document.getElementById('images').innerHTML = ''
+    })
+
+    document.addEventListener('click', event => {
+        if (event.target.className === 'add') {
+          let imgElem = document.createElement('img')
+          imgElem.src = event.target.dataset.image
+          imgElem.alt = event.target.textContent
+          imgElem.setAttribute("class", 'addimg')
+          document.getElementById('images').append(imgElem)
+        }
+      })
+
+  </script>
+
+
+</body>
+</html>
